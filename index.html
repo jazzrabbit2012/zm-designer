@@ -254,6 +254,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+    }
+
+    .rotating-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      opacity: 0;
     }
 
     .rotating-box {
@@ -261,7 +269,19 @@
       height: 200px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       border-radius: 20px;
-      opacity: 0;
+    }
+
+    .design-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 48px;
+      font-weight: 900;
+      color: #ffffff;
+      z-index: 10;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
     }
 
     /* 文字揭示区域 */
@@ -648,8 +668,8 @@
     }
 
     .hero-text-1 {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 0;
+      transform: translateY(50px);
     }
 
     .hero-text-1 h1 {
@@ -664,6 +684,8 @@
     .hero-text-2 {
       text-align: center;
       margin-top: 20px;
+      opacity: 0;
+      transform: translateY(30px);
     }
 
     .hero-text-2 p {
@@ -681,6 +703,312 @@
       height: 3px;
       background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
       z-index: 9999;
+    }
+    /* ==================== 响应式设计 ==================== */
+
+    /* 平板横屏和大屏手机 (<= 992px) */
+    @media (max-width: 992px) {
+      .navbar {
+        padding: 15px 30px;
+      }
+
+      .navbar ul {
+        gap: 15px;
+      }
+
+      .hero-text-1 h1 {
+        font-size: 60px;
+      }
+
+      .hero-text-2 p {
+        font-size: 20px;
+      }
+
+      .hero-intro h2 {
+        font-size: 36px;
+      }
+
+      .cards-container {
+        grid-template-columns: 1fr;
+      }
+
+      .pin-content {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .pin-visual {
+        height: 300px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .software-logos {
+        gap: 20px;
+      }
+
+      .logo-icon {
+        width: 120px;
+        height: 120px;
+        padding: 20px;
+      }
+
+      .logo-icon svg {
+        width: 60px;
+        height: 60px;
+      }
+
+      .stats-container {
+        gap: 40px;
+      }
+
+      .stat-number {
+        font-size: 56px;
+      }
+
+      .reveal-text {
+        font-size: 48px;
+      }
+    }
+
+    /* 手机横屏和小屏平板 (<= 768px) */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+      }
+
+      .navbar h1 {
+        margin-bottom: 10px;
+      }
+
+      .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px;
+      }
+
+      .hero {
+        padding: 0 20px;
+      }
+
+      .hero-text-1 h1 {
+        font-size: 48px;
+      }
+
+      .hero-text-2 p {
+        font-size: 18px;
+      }
+
+      .hero-intro h2 {
+        font-size: 32px;
+      }
+
+      .hero-role {
+        font-size: 18px;
+      }
+
+      .hero-skills,
+      .hero-philosophy {
+        font-size: 14px;
+      }
+
+      .cards-section,
+      .timeline-section,
+      .projects-section,
+      .skills-section,
+      .pin-section,
+      .reveal-section,
+      .contact-section {
+        padding: 60px 20px;
+      }
+
+      .cards-section h2,
+      .timeline-section h2,
+      .projects-section h2,
+      .skills-section h2,
+      .contact-section h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+      }
+
+      /* 时间轴改为单列 */
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item::before {
+        left: 20px;
+      }
+
+      .timeline-item.left .timeline-content,
+      .timeline-item.right .timeline-content {
+        margin-left: 50px;
+        margin-right: 0;
+        text-align: left;
+      }
+
+      .pin-visual {
+        height: 250px;
+      }
+
+      .rotating-container {
+        width: 150px;
+        height: 150px;
+      }
+
+      .rotating-box {
+        width: 150px;
+        height: 150px;
+      }
+
+      .design-text {
+        font-size: 36px;
+      }
+
+      .software-logos {
+        gap: 15px;
+      }
+
+      .logo-card {
+        gap: 15px;
+      }
+
+      .logo-icon {
+        width: 100px;
+        height: 100px;
+        padding: 15px;
+      }
+
+      .logo-icon svg {
+        width: 50px;
+        height: 50px;
+      }
+
+      .logo-name {
+        font-size: 16px;
+      }
+
+      .stats-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .reveal-text {
+        font-size: 36px;
+      }
+
+      .contact-info {
+        gap: 20px;
+      }
+
+      .contact-item {
+        font-size: 18px;
+        padding: 15px;
+      }
+    }
+
+    /* 手机竖屏 (<= 480px) */
+    @media (max-width: 480px) {
+      .hero-text-1 h1 {
+        font-size: 36px;
+      }
+
+      .hero-text-2 p {
+        font-size: 16px;
+      }
+
+      .hero-intro h2 {
+        font-size: 28px;
+      }
+
+      .hero-intro {
+        margin-top: 30px;
+      }
+
+      .cards-section h2,
+      .timeline-section h2,
+      .projects-section h2,
+      .skills-section h2,
+      .contact-section h2 {
+        font-size: 28px;
+      }
+
+      .card {
+        padding: 30px;
+      }
+
+      .card h3 {
+        font-size: 24px;
+      }
+
+      .project-card img {
+        height: 200px;
+      }
+
+      .project-info {
+        padding: 20px;
+      }
+
+      .project-title {
+        font-size: 20px;
+      }
+
+      .project-desc {
+        font-size: 14px;
+      }
+
+      .rotating-container {
+        width: 120px;
+        height: 120px;
+      }
+
+      .rotating-box {
+        width: 120px;
+        height: 120px;
+      }
+
+      .design-text {
+        font-size: 28px;
+      }
+
+      .software-logos {
+        gap: 10px;
+      }
+
+      .logo-icon {
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+      }
+
+      .logo-icon svg {
+        width: 40px;
+        height: 40px;
+      }
+
+      .logo-name {
+        font-size: 14px;
+      }
+
+      .stat-number {
+        font-size: 48px;
+      }
+
+      .stat-label {
+        font-size: 18px;
+      }
+
+      .reveal-text {
+        font-size: 28px;
+      }
+
+      .footer {
+        padding: 30px 20px;
+        font-size: 12px;
+      }
     }
   </style>
 </head>
@@ -944,7 +1272,10 @@
         <p style="margin-top: 20px;">Dream by Design 不仅是一个口号，更是设计哲学。我深信，每一个伟大的设计都源于一个勇敢的梦想。</p>
       </div>
       <div class="pin-visual">
-        <div class="rotating-box"></div>
+        <div class="rotating-container">
+          <div class="rotating-box"></div>
+          <div class="design-text">Design</div>
+        </div>
       </div>
     </div>
   </section>
@@ -985,6 +1316,48 @@
   <script>
     // 注册 ScrollTrigger 插件
     gsap.registerPlugin(ScrollTrigger);
+
+    // Hero区域文字滚动揭示动画
+    // 初始状态：文字透明并下移（已在CSS中设置）
+    
+    // 使用ScrollTrigger，当用户开始滚动时触发动画
+    ScrollTrigger.create({
+      trigger: '.hero',
+      start: 'top 90%',
+      onEnter: () => {
+        gsap.to('.hero-text-1', {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out'
+        });
+        gsap.to('.hero-text-2', {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: 'power3.out'
+        });
+      },
+      onEnterBack: () => {
+        // 重置并重新播放动画
+        gsap.set('.hero-text-1', { opacity: 0, y: 50 });
+        gsap.set('.hero-text-2', { opacity: 0, y: 30 });
+        gsap.to('.hero-text-1', {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out'
+        });
+        gsap.to('.hero-text-2', {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: 'power3.out'
+        });
+      }
+    });
 
     // 滚动进度条
     gsap.to('.scroll-progress', {
@@ -1130,7 +1503,7 @@
 
     tl.to('.pin-text h2', { opacity: 1, y: 0, duration: 0.5 })
       .to('.pin-text p', { opacity: 1, y: 0, duration: 0.5 })
-      .to('.rotating-box', { 
+      .to('.rotating-container', { 
         opacity: 1, 
         rotation: 360, 
         scale: 1.2,
